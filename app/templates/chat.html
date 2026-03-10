@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Chat Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="header">
+                <h1>Chat App</h1>
+                <div class="user-info">
+                    <span id="username-display" data-user-id="{{ session.get('user_id', '') }}">{{ username }}</span>
+                    <a href="{{ url_for('main.logout') }}" class="btn btn-small">Logout</a>
+                </div>
+            </div>
+
+            <div class="rooms-section">
+                <h2>Rooms</h2>
+                <button id="create-room-btn" class="btn btn-primary btn-block">Create Room</button>
+                
+                <div id="rooms-list" class="rooms-list">
+                    <!-- Rooms will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="main-area">
+            <div id="chat-area" class="chat-area" style="display: none;">
+                <div class="chat-header">
+                    <h2 id="room-title">Select a room</h2>
+                </div>
+
+                <div id="messages" class="messages">
+                    <!-- Messages will be loaded here -->
+                </div>
+
+                <div class="message-input-area">
+                    <form id="message-form" onsubmit="sendMessage(event)">
+                        <input 
+                            type="text" 
+                            id="message-input" 
+                            placeholder="Type a message..." 
+                            autocomplete="off"
+                        >
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="no-selection" class="no-selection">
+                <p>Select or create a room to start chatting</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Room Modal -->
+    <div id="create-room-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Room</h2>
+            <form id="create-room-form" onsubmit="createRoom(event)">
+                <div class="form-group">
+                    <label for="room-name">Room Name:</label>
+                    <input type="text" id="room-name" required minlength="2" maxlength="50">
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
