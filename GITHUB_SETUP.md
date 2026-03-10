@@ -7,7 +7,7 @@ Your local Git repository is already initialized and ready! Follow these steps t
 1. Go to [https://github.com/new](https://github.com/new)
 2. Sign in to your GitHub account (create one if you don't have it)
 3. Fill in the repository details:
-   - **Repository name**: `chat-app` (or any name you prefer)
+   - **Repository name**: `chat_app` (or any name you prefer)
    - **Description**: `Real-time web chat application using Flask and WebSocket`
    - **Visibility**: Public (so others can download it)
    - **Do NOT initialize with README** (since we already have one)
@@ -21,25 +21,25 @@ After creating the repository on GitHub, you'll see instructions. Copy the repos
 
 ```bash
 cd "e:\Web scraping\chat_app"
-git remote add origin https://github.com/YOUR_USERNAME/chat-app.git
+git remote add origin https://github.com/phvus/chat_app.git
 git branch -M main
 git push -u origin main
 ```
 
-**Replace `YOUR_USERNAME` with your actual GitHub username**
+**Ready to push! Just copy and paste the commands above.**
 
 ### Using SSH (if you have SSH keys set up):
 
 ```bash
 cd "e:\Web scraping\chat_app"
-git remote add origin git@github.com:YOUR_USERNAME/chat-app.git
+git remote add origin git@github.com:phvus/chat_app.git
 git branch -M main
 git push -u origin main
 ```
 
 ## Step 3: Verify
 
-1. Go to your GitHub repository URL: `https://github.com/YOUR_USERNAME/chat-app`
+1. Go to your GitHub repository URL: `https://github.com/phvus/chat_app`
 2. You should see all your files there!
 
 ## Sharing Your App
@@ -48,8 +48,8 @@ git push -u origin main
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/chat-app.git
-cd chat-app
+git clone https://github.com/phvus/chat_app.git
+cd chat_app
 
 # Windows - Run setup
 setup.bat
@@ -63,6 +63,7 @@ python run.py
 
 ```bash
 # Linux/Mac - Run setup
+cd chat_app
 ./setup.sh
 
 # Or manually:
